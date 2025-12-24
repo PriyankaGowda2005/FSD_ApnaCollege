@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HTML Complete Guide – Beginner to Advanced</title>
+      <!-- ================= CSS START ================= -->
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #f4f6f8;
+            color: #333;
+            line-height: 1.7;
+            padding: 30px;
+        }
+
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        h2 {
+            color: #1e88e5;
+            border-left: 5px solid #1e88e5;
+            padding-left: 10px;
+            margin-top: 40px;
+        }
+
+        h3, h4, h5, h6 {
+            color: #37474f;
+        }
+
+        p {
+            background: #ffffff;
+            padding: 12px 15px;
+            border-radius: 6px;
+            margin: 12px 0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        hr {
+            border: none;
+            height: 2px;
+            background: #ddd;
+            margin: 40px 0;
+        }
+
+        a {
+            color: #1e88e5;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        img {
+            display: block;
+            margin: 20px auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        ul, ol {
+            background: #ffffff;
+            padding: 15px 40px;
+            border-radius: 6px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        li {
+            margin: 8px 0;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: #ffffff;
+            margin-top: 15px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border: 1px solid #ddd;
+        }
+
+        th {
+            background: #1e88e5;
+            color: white;
+        }
+
+        form {
+            background: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+            max-width: 400px;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            margin-bottom: 15px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        button {
+            background: #1e88e5;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background: #1565c0;
+        }
+
+        mark {
+            background-color: #fff59d;
+            padding: 2px 6px;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 50px;
+            color: #666;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ================================================= -->
+    <!-- INTRODUCTION -->
+    <!-- ================================================= -->
+
+    <h1>HTML Complete Guide (Beginner to Advanced)</h1>
+
+    <p>
+        HTML stands for <b>HyperText Markup Language</b>.  
+        It is used to create the structure of web pages.  
+        HTML is not a programming language — it is a <b>markup language</b>.
+    </p>
+
+    <p>
+        HTML works using <b>tags</b>.  
+        Tags tell the browser how to display content.
+    </p>
+
+    <hr>
+
+    <!-- ================================================= -->
+    <!-- BASIC STRUCTURE -->
+    <!-- ================================================= -->
+
+    <h2>Basic HTML Structure</h2>
+
+    <p>
+        Every HTML document starts with <b>&lt;!DOCTYPE html&gt;</b>.  
+        It tells the browser that this document is written in HTML5.
+    </p>
+
+    <p>
+        The <b>&lt;html&gt;</b> tag is the root of the HTML document.
+    </p>
+
+    <p>
+        The <b>&lt;head&gt;</b> tag contains meta information like title and character set.
+    </p>
+
+    <p>
+        The <b>&lt;body&gt;</b> tag contains everything that is visible on the webpage.
+    </p>
+
+    <hr>
+
+    <!-- ================================================= -->
+    <!-- HEADINGS -->
+    <!-- ================================================= -->
+
+    <h2>Headings (h1 to h6)</h2>
+
+    <h1>h1 Heading</h1>
+    <p>
+        &lt;h1&gt; is the most important heading.  
+        Usually used once per page for the main title.
+    </p>
+
+    <h2>h2 Heading</h2>
+    <p>
+        &lt;h2&gt; is used for main sections under h1.
+    </p>
+
+    <h3>h3 Heading</h3>
+    <p>
+        &lt;h3&gt; is used for sub-sections.
+    </p>
+
+    <h4>h4 Heading</h4>
+    <p>
+        &lt;h4&gt; is used for smaller headings.
+    </p>
+
+    <h5>h5 Heading</h5>
+    <p>
+        &lt;h5&gt; is rarely used.
+    </p>
+
+    <h6>h6 Heading</h6>
+    <p>
+        &lt;h6&gt; is the smallest heading.
+    </p>
+
+    <hr>
+
+    <!-- ================================================= -->
+    <!-- TEXT TAGS -->
+    <!-- ================================================= -->
+
+    <h2>Text Formatting Tags</h2>
+
+    <p>
+        The &lt;p&gt; tag is used to write paragraphs.
+    </p>
+
+    <p>
+        The &lt;b&gt; tag makes text <b>bold</b>.
+    </p>
+
+    <p>
+        The &lt;strong&gt; tag makes text <strong>bold and important</strong>.
+    </p>
+
+    <p>
+        The &lt;i&gt; tag makes text <i>italic</i>.
+    </p>
+
+    <p>
+        The &lt;em&gt; tag <em>emphasizes</em> text with meaning.
+    </p>
+
+    <p>
+        The &lt;u&gt; tag <u>underlines</u> text.
+    </p>
+
+    <p>
+        The &lt;mark&gt; tag <mark>highlights</mark> text.
+    </p>
+
+    <p>
+        The &lt;small&gt; tag shows <small>smaller text</small>.
+    </p>
+
+    <p>
+        Superscript example: 10<sup>2</sup> using &lt;sup&gt;
+    </p>
+
+    <p>
+        Subscript example: H<sub>2</sub>O using &lt;sub&gt;
+    </p>
+
+    <p>
+        The &lt;del&gt; tag shows <del>deleted text</del>.
+    </p>
+
+    <p>
+        The &lt;ins&gt; tag shows <ins>inserted text</ins>.
+    </p>
+
+    <hr>
+
+    <!-- ================================================= -->
+    <!-- LINE & DIVIDER -->
+    <!-- ================================================= -->
+
+    <h2>Line Break and Horizontal Line</h2>
+
+    <p>
+        The &lt;br&gt; tag breaks the line <br>
+        without starting a new paragraph.
+    </p>
+
+    <p>
+        The &lt;hr&gt; tag creates a horizontal line.
+    </p>
+
+    <hr>
+
+    <!-- ================================================= -->
+    <!-- LINKS -->
+    <!-- ================================================= -->
+
+    <h2>Links (Anchor Tag)</h2>
+
+    <p>
+        The &lt;a&gt; tag is used to create links.
+    </p>
+
+    <p>
+        Example:
+        <a href="https://www.google.com" target="_blank">
+            Open Google
+        </a>
+    </p>
+
+    <p>
+        The <b>target="_blank"</b> opens the link in a new tab.
+    </p>
+
+    <hr>
+
+    <!-- ================================================= -->
+    <!-- IMAGES -->
+    <!-- ================================================= -->
+
+    <h2>Images</h2>
+
+    <p>
+        The &lt;img&gt; tag is used to display images.
+    </p>
+
+    <p>
+        The <b>alt</b> attribute provides text if the image fails to load.
+        It is important for accessibility.
+    </p>
+
+    <img src="https://via.placeholder.com/200" alt="Sample image">
+
+    <hr>
+
+    <!-- ================================================= -->
+    <!-- LISTS -->
+    <!-- ================================================= -->
+
+    <h2>Lists</h2>
+
+    <p>
+        Unordered list (&lt;ul&gt;) shows bullet points.
+    </p>
+
+    <ul>
+        <li>HTML</li>
+        <li>CSS</li>
+        <li>JavaScript</li>
+    </ul>
+
+    <p>
+        Ordered list (&lt;ol&gt;) shows numbers.
+    </p>
+
+    <ol>
+        <li>Learn HTML</li>
+        <li>Learn CSS</li>
+        <li>Learn JavaScript</li>
+    </ol>
+
+    <hr>
+
+    <!-- ================================================= -->
+    <!-- TABLES -->
+    <!-- ================================================= -->
+
+    <h2>Tables</h2>
+
+    <p>
+        Tables are created using &lt;table&gt;, &lt;tr&gt;, &lt;th&gt;, and &lt;td&gt;.
+    </p>
+
+    <table border="1">
+        <tr>
+            <th>Name</th>
+            <th>Role</th>
+        </tr>
+        <tr>
+            <td>Priyanka</td>
+            <td>Developer</td>
+        </tr>
+    </table>
+
+    <hr>
+
+    <!-- ================================================= -->
+    <!-- FORMS -->
+    <!-- ================================================= -->
+
+    <h2>Forms</h2>
+
+    <p>
+        Forms are used to collect user input.
+    </p>
+
+    <form>
+        <p>
+            The &lt;input&gt; tag is used for text input.
+        </p>
+        <input type="text" placeholder="Enter name">
+
+        <p>
+            The &lt;input type='email'&gt; is used for email.
+        </p>
+        <input type="email" placeholder="Enter email">
+
+        <p>
+            The &lt;button&gt; tag submits the form.
+        </p>
+        <button>Submit</button>
+    </form>
+
+    <hr>
+
+    <!-- ================================================= -->
+    <!-- SEMANTIC TAGS -->
+    <!-- ================================================= -->
+
+    <h2>Semantic HTML (Advanced)</h2>
+
+    <p>
+        Semantic tags give meaning to the content.
+        They improve SEO and readability.
+    </p>
+
+    <p>
+        Examples of semantic tags:
+        &lt;header&gt;, &lt;nav&gt;, &lt;section&gt;, &lt;article&gt;, &lt;footer&gt;
+    </p>
+
+    <hr>
+
+    <!-- ================================================= -->
+    <!-- FINAL -->
+    <!-- ================================================= -->
+
+    <h2>Conclusion</h2>
+
+    <p>
+        You have learned HTML from basic structure to advanced concepts.
+        This is the foundation of web development.
+    </p>
+
+    <p>
+        Next steps:
+        Learn CSS for styling and JavaScript for interactivity.
+    </p>
+     <!-- ================= JAVASCRIPT ================= -->
+    <script>
+
+        function showMessage() {
+            document.getElementById("message").classList.remove("hidden");
+        }
+
+        function changeText() {
+            document.getElementById("textBox").innerText =
+                "Text updated using JavaScript!";
+        }
+
+        function validateForm() {
+            var name = document.getElementById("name").value;
+            var email = document.getElementById("email").value;
+
+            if (name === "" || email === "") {
+                alert("Please fill all fields");
+                return false;
+            }
+
+            document.getElementById("formResult").innerText =
+                "Form submitted successfully!";
+            document.getElementById("formResult").classList.remove("hidden");
+
+            return false;
+        }
+
+        function toggleBox() {
+            document.getElementById("toggleArea")
+                .classList.toggle("hidden");
+        }
+
+    </script>
+
+</body>
+</html>

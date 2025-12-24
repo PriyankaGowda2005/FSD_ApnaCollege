@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CSS Complete Guide – Beginner to Advanced</title>
+
+    <!-- =========================
+         CSS STARTS HERE
+    ========================== -->
+    <style>
+
+        /* =========================
+           1. CSS RESET & GLOBAL STYLES
+        ========================== */
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #f4f6f8;
+            color: #333;
+            padding: 30px;
+            line-height: 1.7;
+        }
+
+        /* =========================
+           2. TEXT & TYPOGRAPHY
+        ========================== */
+
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+        }
+
+        h2 {
+            color: #1e88e5;
+            border-left: 6px solid #1e88e5;
+            padding-left: 12px;
+            margin-top: 40px;
+        }
+
+        p {
+            background-color: #ffffff;
+            padding: 15px;
+            border-radius: 6px;
+            margin: 12px 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.08);
+        }
+
+        .highlight {
+            color: #d32f2f;
+            font-weight: bold;
+        }
+
+        /* =========================
+           3. COLORS & BACKGROUNDS
+        ========================== */
+
+        .color-box {
+            background-color: #1e88e5;
+            color: white;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 6px;
+        }
+
+        /* =========================
+           4. BOX MODEL
+        ========================== */
+
+        .box-model {
+            width: 250px;
+            padding: 20px;
+            border: 4px solid #1e88e5;
+            margin: 20px 0;
+            background-color: #e3f2fd;
+        }
+
+        /* =========================
+           5. DISPLAY
+        ========================== */
+
+        .inline {
+            display: inline;
+            background: yellow;
+        }
+
+        .block {
+            display: block;
+            background: lightgreen;
+            margin: 10px 0;
+        }
+
+        .inline-block {
+            display: inline-block;
+            width: 120px;
+            height: 50px;
+            background: lightcoral;
+        }
+
+        /* =========================
+           6. POSITIONING
+        ========================== */
+
+        .position-box {
+            position: relative;
+            height: 120px;
+            background: #e0e0e0;
+            margin-top: 15px;
+        }
+
+        .absolute-box {
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            background: #1e88e5;
+            color: white;
+            padding: 8px;
+        }
+
+        /* =========================
+           7. FLEXBOX
+        ========================== */
+
+        .flex-container {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            background: #ffffff;
+            padding: 15px;
+            margin-top: 10px;
+        }
+
+        .flex-item {
+            background: #1e88e5;
+            color: white;
+            padding: 15px;
+            border-radius: 6px;
+        }
+
+        /* =========================
+           8. GRID
+        ========================== */
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .grid-item {
+            background: #43a047;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        /* =========================
+           9. BUTTON & HOVER
+        ========================== */
+
+        button {
+            background: #1e88e5;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background: #1565c0;
+            transform: scale(1.05);
+        }
+
+        /* =========================
+           10. RESPONSIVE DESIGN
+        ========================== */
+
+        @media (max-width: 600px) {
+            body {
+                background-color: #fffde7;
+            }
+
+            h1 {
+                font-size: 22px;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <h1>CSS Complete Guide (0 → Advanced)</h1>
+
+    <p>
+        CSS stands for <span class="highlight">Cascading Style Sheets</span>.  
+        CSS is used to style and layout web pages.
+    </p>
+
+    <hr>
+
+    <h2>1. CSS Syntax</h2>
+
+    <p>
+        CSS follows this format:  
+        <b>selector { property: value; }</b>
+    </p>
+
+    <h2>2. Colors & Backgrounds</h2>
+
+    <p>
+        CSS can apply colors using names, HEX, RGB, or HSL.
+    </p>
+
+    <div class="color-box">
+        This box has background-color and text color applied.
+    </div>
+
+    <h2>3. CSS Box Model</h2>
+
+    <p>
+        The box model consists of: content, padding, border, and margin.
+    </p>
+
+    <div class="box-model">
+        This box demonstrates padding, border, and margin.
+    </div>
+
+    <h2>4. Display Property</h2>
+
+    <p>
+        Display controls how elements appear.
+    </p>
+
+    <span class="inline">Inline</span>
+    <span class="inline">Inline</span>
+
+    <div class="block">Block Element</div>
+
+    <div class="inline-block">Inline-block</div>
+    <div class="inline-block">Inline-block</div>
+
+    <h2>5. Positioning</h2>
+
+    <p>
+        Position controls where elements appear on the page.
+    </p>
+
+    <div class="position-box">
+        Parent (relative)
+        <div class="absolute-box">
+            Absolute child
+        </div>
+    </div>
+
+    <h2>6. Flexbox</h2>
+
+    <p>
+        Flexbox is used for one-dimensional layouts.
+    </p>
+
+    <div class="flex-container">
+        <div class="flex-item">Item 1</div>
+        <div class="flex-item">Item 2</div>
+        <div class="flex-item">Item 3</div>
+    </div>
+
+    <h2>7. Grid</h2>
+
+    <p>
+        Grid is used for two-dimensional layouts.
+    </p>
+
+    <div class="grid-container">
+        <div class="grid-item">1</div>
+        <div class="grid-item">2</div>
+        <div class="grid-item">3</div>
+        <div class="grid-item">4</div>
+        <div class="grid-item">5</div>
+        <div class="grid-item">6</div>
+    </div>
+
+    <h2>8. Hover & Transitions</h2>
+
+    <p>
+        Hover effects improve user interaction.
+    </p>
+
+    <button>Hover Me</button>
+
+    <h2>9. Responsive Design</h2>
+
+    <p>
+        Resize the browser to see responsive changes.
+    </p>
+
+    <h2>Conclusion</h2>
+
+    <p>
+        You have learned CSS from basics to advanced layouts.
+    </p>
+
+</body>
+</html>
