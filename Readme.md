@@ -96,6 +96,7 @@ full-stack-development/
 │   └── architecture.md
 │
 └── README.md
+```
 
 🧭 Learning Roadmap
 1️⃣ HTML (Foundation)
