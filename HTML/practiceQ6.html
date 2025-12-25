@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Complete Advanced Form</title>
+
+    <!-- =========================
+         INTERNAL CSS (STYLING)
+    ========================= -->
+    <style>
+        /* Reset default browser styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Page background */
+        body {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Main form container */
+        .form-container {
+            background: white;
+            padding: 30px;
+            width: 100%;
+            max-width: 600px;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        }
+
+        /* Form heading */
+        .form-container h1 {
+            text-align: center;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        /* Description text */
+        .form-container p {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #666;
+        }
+
+        /* Label styling */
+        label {
+            display: block;
+            margin-top: 15px;
+            font-weight: bold;
+            color: #444;
+        }
+
+        /* Input, select, textarea common styles */
+        input, select, textarea {
+            width: 100%;
+            padding: 10px;
+            margin-top: 6px;
+            border-radius: 6px;
+            border: 1px solid #ccc;
+            font-size: 14px;
+        }
+
+        input:focus, select:focus, textarea:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+
+        /* Radio & checkbox group */
+        .inline-group {
+            display: flex;
+            gap: 15px;
+            margin-top: 8px;
+        }
+
+        /* Range slider */
+        input[type="range"] {
+            accent-color: #667eea;
+        }
+
+        /* Submit button */
+        button {
+            margin-top: 25px;
+            width: 100%;
+            padding: 12px;
+            background: #667eea;
+            border: none;
+            color: white;
+            font-size: 16px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background: #5a67d8;
+        }
+
+        /* Error message */
+        .error {
+            color: red;
+            font-size: 13px;
+            margin-top: 4px;
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- =========================
+     FORM CONTAINER
+========================= -->
+<div class="form-container">
+
+    <h1>User Registration</h1>
+    <p>Fill all details carefully</p>
+
+    <!-- =========================
+         FORM START
+    ========================= -->
+    <form id="registrationForm">
+
+        <!-- FULL NAME -->
+        <label>Full Name</label>
+        <input type="text" id="name" placeholder="Enter full name">
+        <div class="error" id="nameError"></div>
+
+        <!-- EMAIL -->
+        <label>Email Address</label>
+        <input type="email" id="email" placeholder="Enter email">
+        <div class="error" id="emailError"></div>
+
+        <!-- PASSWORD -->
+        <label>Password</label>
+        <input type="password" id="password" placeholder="Enter password">
+
+        <!-- CONFIRM PASSWORD -->
+        <label>Confirm Password</label>
+        <input type="password" id="confirmPassword" placeholder="Re-enter password">
+        <div class="error" id="passwordError"></div>
+
+        <!-- PHONE NUMBER -->
+        <label>Phone Number</label>
+        <input type="tel" id="phone" placeholder="Enter phone number">
+
+        <!-- DATE OF BIRTH -->
+        <label>Date of Birth</label>
+        <input type="date" id="dob">
+
+        <!-- GENDER -->
+        <label>Gender</label>
+        <div class="inline-group">
+            <input type="radio" name="gender" value="Male"> Male
+            <input type="radio" name="gender" value="Female"> Female
+            <input type="radio" name="gender" value="Other"> Other
+        </div>
+
+        <!-- SKILLS -->
+        <label>Skills</label>
+        <div class="inline-group">
+            <input type="checkbox"> HTML
+            <input type="checkbox"> CSS
+            <input type="checkbox"> JavaScript
+            <input type="checkbox"> React
+        </div>
+
+        <!-- COUNTRY -->
+        <label>Country</label>
+        <select>
+            <option value="">Select Country</option>
+            <option>India</option>
+            <option>USA</option>
+            <option>UK</option>
+            <option>Australia</option>
+        </select>
+
+        <!-- EXPERIENCE RANGE -->
+        <label>Experience (Years)</label>
+        <input type="range" min="0" max="10">
+
+        <!-- ABOUT -->
+        <label>About Yourself</label>
+        <textarea rows="4" placeholder="Tell us about yourself"></textarea>
+
+        <!-- TERMS -->
+        <div class="inline-group">
+            <input type="checkbox" id="terms">
+            <label for="terms">I agree to terms & conditions</label>
+        </div>
+
+        <!-- SUBMIT -->
+        <button type="submit">Register</button>
+
+    </form>
+</div>
+
+<!-- =========================
+     INTERNAL JAVASCRIPT
+========================= -->
+<script>
+    // Form submission event
+    document.getElementById("registrationForm").addEventListener("submit", function(e) {
+        e.preventDefault(); // Stop form from refreshing
+
+        // Get values
+        let name = document.getElementById("name").value.trim();
+        let email = document.getElementById("email").value.trim();
+        let password = document.getElementById("password").value;
+        let confirmPassword = document.getElementById("confirmPassword").value;
+
+        // Reset errors
+        document.getElementById("nameError").textContent = "";
+        document.getElementById("emailError").textContent = "";
+        document.getElementById("passwordError").textContent = "";
+
+        let isValid = true;
+
+        // Name validation
+        if (name === "") {
+            document.getElementById("nameError").textContent = "Name is required";
+            isValid = false;
+        }
+
+        // Email validation
+        if (!email.includes("@")) {
+            document.getElementById("emailError").textContent = "Invalid email address";
+            isValid = false;
+        }
+
+        // Password validation
+        if (password !== confirmPassword) {
+            document.getElementById("passwordError").textContent = "Passwords do not match";
+            isValid = false;
+        }
+
+        // Final result
+        if (isValid) {
+            alert("🎉 Registration Successful!");
+            document.getElementById("registrationForm").reset();
+        }
+    });
+</script>
+
+</body>
+</html>
