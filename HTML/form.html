@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Real-Time Advanced Form</title>
+
+    <!-- =========================
+         CSS : UI + DESIGN
+         ========================= -->
+    <style>
+        /* ---------- GLOBAL RESET ---------- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Segoe UI", Arial, sans-serif;
+        }
+
+        /* ---------- PAGE BACKGROUND ---------- */
+        body {
+            min-height: 100vh;
+            background: linear-gradient(120deg, #667eea, #764ba2);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* ---------- FORM CARD ---------- */
+        .card {
+            background: #ffffff;
+            width: 100%;
+            max-width: 650px;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.25);
+        }
+
+        /* ---------- HEADER ---------- */
+        .card h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 8px;
+        }
+
+        .card p {
+            text-align: center;
+            color: #666;
+            margin-bottom: 25px;
+        }
+
+        /* ---------- FORM GROUP ---------- */
+        .form-group {
+            margin-bottom: 18px;
+        }
+
+        label {
+            font-weight: 600;
+            color: #444;
+            display: block;
+            margin-bottom: 6px;
+        }
+
+        /* ---------- INPUT STYLES ---------- */
+        input, select, textarea {
+            width: 100%;
+            padding: 11px;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            font-size: 14px;
+            transition: 0.3s;
+        }
+
+        input:focus, select:focus, textarea:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 5px rgba(102,126,234,0.4);
+        }
+
+        /* ---------- VALID & INVALID STATES ---------- */
+        .success {
+            border-color: green;
+        }
+
+        .error {
+            border-color: red;
+        }
+
+        .error-text {
+            color: red;
+            font-size: 13px;
+            margin-top: 4px;
+        }
+
+        /* ---------- INLINE OPTIONS ---------- */
+        .inline {
+            display: flex;
+            gap: 15px;
+            margin-top: 8px;
+            flex-wrap: wrap;
+        }
+
+        /* ---------- BUTTON ---------- */
+        button {
+            width: 100%;
+            padding: 14px;
+            background: #667eea;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: 0.3s;
+            margin-top: 10px;
+        }
+
+        button:hover {
+            background: #5a67d8;
+        }
+
+        button:disabled {
+            background: gray;
+            cursor: not-allowed;
+        }
+
+        /* ---------- RESPONSIVE ---------- */
+        @media(max-width: 500px) {
+            .card {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- =========================
+     FORM CARD
+     ========================= -->
+<div class="card">
+
+    <h1>Real-Time Registration</h1>
+    <p>All validations happen live (no page refresh)</p>
+
+    <form id="form">
+
+        <!-- FULL NAME -->
+        <div class="form-group">
+            <label>Full Name</label>
+            <input type="text" id="name">
+            <div class="error-text" id="nameError"></div>
+        </div>
+
+        <!-- EMAIL -->
+        <div class="form-group">
+            <label>Email</label>
+            <input type="email" id="email">
+            <div class="error-text" id="emailError"></div>
+        </div>
+
+        <!-- PASSWORD -->
+        <div class="form-group">
+            <label>Password</label>
+            <input type="password" id="password">
+            <div class="error-text" id="passwordError"></div>
+        </div>
+
+        <!-- CONFIRM PASSWORD -->
+        <div class="form-group">
+            <label>Confirm Password</label>
+            <input type="password" id="confirmPassword">
+            <div class="error-text" id="confirmError"></div>
+        </div>
+
+        <!-- PHONE -->
+        <div class="form-group">
+            <label>Phone Number</label>
+            <input type="tel" id="phone">
+            <div class="error-text" id="phoneError"></div>
+        </div>
+
+        <!-- GENDER -->
+        <div class="form-group">
+            <label>Gender</label>
+            <div class="inline">
+                <input type="radio" name="gender"> Male
+                <input type="radio" name="gender"> Female
+                <input type="radio" name="gender"> Other
+            </div>
+        </div>
+
+        <!-- SKILLS -->
+        <div class="form-group">
+            <label>Skills</label>
+            <div class="inline">
+                <input type="checkbox"> HTML
+                <input type="checkbox"> CSS
+                <input type="checkbox"> JavaScript
+                <input type="checkbox"> React
+            </div>
+        </div>
+
+        <!-- ABOUT -->
+        <div class="form-group">
+            <label>About You</label>
+            <textarea rows="3"></textarea>
+        </div>
+
+        <!-- TERMS -->
+        <div class="form-group inline">
+            <input type="checkbox" id="terms">
+            <label>I agree to Terms & Conditions</label>
+        </div>
+
+        <!-- SUBMIT -->
+        <button id="submitBtn" disabled>Submit</button>
+    </form>
+</div>
+
+<!-- =========================
+     JAVASCRIPT : REAL-TIME LOGIC
+     ========================= -->
+<script>
+    // Getting elements
+    const nameInput = document.getElementById("name");
+    const emailInput = document.getElementById("email");
+    const passwordInput = document.getElementById("password");
+    const confirmInput = document.getElementById("confirmPassword");
+    const phoneInput = document.getElementById("phone");
+    const submitBtn = document.getElementById("submitBtn");
+
+    // ---------- VALIDATION FUNCTIONS ----------
+
+    function validateName() {
+        if (nameInput.value.length < 3) {
+            setError(nameInput, "Minimum 3 characters");
+            return false;
+        }
+        setSuccess(nameInput);
+        return true;
+    }
+
+    function validateEmail() {
+        const pattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!pattern.test(emailInput.value)) {
+            setError(emailInput, "Invalid email format");
+            return false;
+        }
+        setSuccess(emailInput);
+        return true;
+    }
+
+    function validatePassword() {
+        if (passwordInput.value.length < 6) {
+            setError(passwordInput, "At least 6 characters");
+            return false;
+        }
+        setSuccess(passwordInput);
+        return true;
+    }
+
+    function validateConfirm() {
+        if (confirmInput.value !== passwordInput.value) {
+            setError(confirmInput, "Passwords do not match");
+            return false;
+        }
+        setSuccess(confirmInput);
+        return true;
+    }
+
+    function validatePhone() {
+        if (!/^\d{10}$/.test(phoneInput.value)) {
+            setError(phoneInput, "Enter 10 digit number");
+            return false;
+        }
+        setSuccess(phoneInput);
+        return true;
+    }
+
+    // ---------- HELPER FUNCTIONS ----------
+    function setError(input, message) {
+        input.classList.add("error");
+        input.classList.remove("success");
+        input.nextElementSibling.textContent = message;
+    }
+
+    function setSuccess(input) {
+        input.classList.add("success");
+        input.classList.remove("error");
+        input.nextElementSibling.textContent = "";
+    }
+
+    // ---------- REAL-TIME EVENTS ----------
+    nameInput.addEventListener("input", validateName);
+    emailInput.addEventListener("input", validateEmail);
+    passwordInput.addEventListener("input", validatePassword);
+    confirmInput.addEventListener("input", validateConfirm);
+    phoneInput.addEventListener("input", validatePhone);
+
+    // Enable submit only when all valid
+    document.getElementById("form").addEventListener("input", () => {
+        submitBtn.disabled = !(
+            validateName() &&
+            validateEmail() &&
+            validatePassword() &&
+            validateConfirm() &&
+            validatePhone()
+        );
+    });
+
+    // ---------- SUBMIT ----------
+    document.getElementById("form").addEventListener("submit", e => {
+        e.preventDefault();
+        alert("🎉 Form submitted successfully!");
+        e.target.reset();
+        submitBtn.disabled = true;
+    });
+</script>
+
+</body>
+</html>
