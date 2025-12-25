@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Registration Form</title>
+
+    <!-- =========================
+         BASIC CSS FOR CLEAN UI
+         ========================= -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            padding: 40px;
+        }
+
+        .form-box {
+            width: 420px;
+            background-color: white;
+            padding: 20px;
+            border: 1px solid #999;
+        }
+
+        h2 {
+            margin-bottom: 15px;
+        }
+
+        input, select {
+            padding: 6px;
+            margin: 5px 0;
+        }
+
+        button {
+            padding: 6px 12px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- =========================
+         REGISTRATION FORM
+         ========================= -->
+    <div class="form-box">
+
+        <h2>Registration Form</h2>
+
+        <!-- FORM START -->
+        <form>
+
+            <!-- FIRST NAME -->
+            <input type="text" placeholder="First Name">
+
+            <!-- LAST NAME -->
+            <input type="text" placeholder="Last Name">
+
+            <br><br>
+
+            <!-- GENDER DROPDOWN -->
+            <label>Please select gender </label>
+            <select>
+                <option>Male</option>
+                <option>Female</option>
+                <option>Other</option>
+            </select>
+
+            <br><br>
+
+            <!-- TERMS & CONDITIONS CHECKBOX -->
+            <label>
+                Do you agree to all terms of service?
+            </label>
+
+            <input type="checkbox" checked>
+            <label>Yes, I agree</label>
+
+            <br><br>
+
+            <!-- SUBMIT BUTTON -->
+            <button type="submit">Register</button>
+
+        </form>
+        <!-- FORM END -->
+
+    </div>
+
+</body>
+</html>
