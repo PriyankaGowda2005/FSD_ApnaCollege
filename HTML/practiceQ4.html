@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HTML Table with Merged Cells</title>
+
+    <!-- =========================
+         INTERNAL CSS STARTS HERE
+         This CSS is only for styling the table
+    ========================== -->
+    <style>
+
+        /* Apply basic font and spacing to the whole page */
+        body {
+            font-family: "Times New Roman", serif;
+            padding: 40px;
+            background-color: #f2f2f2;
+        }
+
+        /* Table styling */
+        table {
+            border-collapse: collapse;   /* Merge table borders into one */
+            margin: auto;                /* Center the table */
+            background-color: white;
+        }
+
+        /* Table caption (table title) */
+        caption {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        /* Common styling for table headers and data cells */
+        th, td {
+            border: 2px solid black;     /* Table border */
+            padding: 10px 18px;          /* Space inside cells */
+            text-align: center;          /* Center text */
+            font-size: 18px;
+        }
+
+        /* Header cells styling */
+        th {
+            font-weight: bold;
+        }
+
+    </style>
+</head>
+
+<body>
+
+<!-- =========================
+     TABLE STARTS HERE
+========================== -->
+
+<table>
+
+    <!-- Table title -->
+    <caption>A test table with merged cells</caption>
+
+    <!-- =========================
+         FIRST ROW (MAIN HEADERS)
+         rowspan & colspan used here
+    ========================== -->
+    <tr>
+        <!-- Empty cell at top-left
+             rowspan="2" means this cell
+             will cover 2 rows vertically -->
+        <th rowspan="2"></th>
+
+        <!-- colspan="2" means this cell
+             covers 2 columns horizontally -->
+        <th colspan="2">Average</th>
+
+        <!-- This header spans 2 rows -->
+        <th rowspan="2">Red eyes</th>
+    </tr>
+
+    <!-- =========================
+         SECOND ROW (SUB HEADERS)
+         These belong under "Average"
+    ========================== -->
+    <tr>
+        <th>Height</th>
+        <th>Weight</th>
+    </tr>
+
+    <!-- =========================
+         THIRD ROW (MALES DATA)
+    ========================== -->
+    <tr>
+        <!-- Row header -->
+        <th>Males</th>
+
+        <!-- Data cells -->
+        <td>1.9</td>
+        <td>0.003</td>
+        <td>40%</td>
+    </tr>
+
+    <!-- =========================
+         FOURTH ROW (FEMALES DATA)
+    ========================== -->
+    <tr>
+        <th>Females</th>
+        <td>1.7</td>
+        <td>0.002</td>
+        <td>43%</td>
+    </tr>
+
+</table>
+
+</body>
+</html>
