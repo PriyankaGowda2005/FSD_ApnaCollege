@@ -1,0 +1,28 @@
+let msg = "Help!";
+let newMsg = msg.trim().toUpperCase();
+console.log("Before String method", msg);
+console.log("After String method", newMsg);
+
+let name = "Apna College";
+console.log(name.slice(4,9));
+console.log(name.replace("Apna", "Our"));
+console.log(name.concat("is a good platform"));
+console.log(name.includes("College"));
+console.log(name.length);
+console.log(name.split(" "));
+console.log(name.charAt(0));
+console.log(name.charCodeAt(0));
+console.log(name.indexOf("College"));
+console.log(name.lastIndexOf("College"));
+console.log(name.startsWith("Apna"));
+console.log(name.endsWith("College"));
+console.log(name.toUpperCase());
+console.log(name.toLowerCase());
+console.log(name.trim());   
+console.log(name.padStart(10, "0"));
+console.log(name.padEnd(10, "0"));
+console.log(name.repeat(3));
+console.log(name.split(" "));
+console.log(name.split(" "));
+console.log(name.split(" "));
+console.log(name.indexOf("na"));
