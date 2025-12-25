@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- ===============================
+         META TAGS (BROWSER INFORMATION)
+         =============================== -->
+
+    <!-- Defines character encoding -->
+    <meta charset="UTF-8">
+
+    <!-- Makes website responsive on all devices -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Title shown on browser tab -->
+    <title>HTML Form & Table – Complete Explanation</title>
+
+    <!-- ===============================
+         CSS (STYLING PART)
+         =============================== -->
+    <style>
+
+        /* -------- CSS RESET --------
+           Removes default spacing from browser
+        */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* -------- BODY STYLING -------- */
+        body {
+            font-family: Arial, sans-serif; /* Font for entire page */
+            background-color: #f2f4f8;      /* Page background */
+            padding: 30px;                  /* Space inside body */
+        }
+
+        /* -------- MAIN CONTAINER -------- */
+        .container {
+            max-width: 900px;               /* Maximum width */
+            margin: auto;                   /* Center horizontally */
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        }
+
+        /* -------- HEADINGS -------- */
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        h2 {
+            margin: 25px 0 10px;
+            color: #1e88e5;
+        }
+
+        /* ===============================
+           FORM STYLING
+           =============================== */
+
+        form {
+            margin-top: 15px;
+        }
+
+        /* Each label + input group */
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        /* Label styling */
+        label {
+            display: block;        /* Forces label on new line */
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        /* Input, select & textarea styling */
+        input, select, textarea {
+            width: 100%;           /* Take full width */
+            padding: 10px;
+            border-radius: 6px;
+            border: 1px solid #ccc;
+            font-size: 14px;
+        }
+
+        /* When input is focused (clicked) */
+        input:focus, textarea:focus {
+            outline: none;
+            border-color: #1e88e5;
+        }
+
+        /* Radio & checkbox inline layout */
+        .inline {
+            display: flex;
+            gap: 15px;
+            margin-top: 6px;
+        }
+
+        /* Submit button */
+        button {
+            background: #1e88e5;
+            color: white;
+            border: none;
+            padding: 12px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 15px;
+            margin-top: 10px;
+        }
+
+        button:hover {
+            background: #1565c0;
+        }
+
+        /* Error message */
+        .error {
+            color: red;
+            font-size: 13px;
+            margin-top: 4px;
+        }
+
+        /* ===============================
+           TABLE STYLING
+           =============================== */
+
+        table {
+            width: 100%;
+            border-collapse: collapse; /* Removes double borders */
+            margin-top: 20px;
+        }
+
+        th, td {
+            border: 1px solid #999;
+            padding: 10px;
+            text-align: center;
+        }
+
+        /* Table header */
+        th {
+            background: #1e88e5;
+            color: white;
+        }
+
+        /* Zebra striping */
+        tr:nth-child(even) {
+            background: #f2f2f2;
+        }
+
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>HTML FORM & TABLE – FULL EXPLANATION</h1>
+
+    <!-- ===============================
+         FORM SECTION
+         =============================== -->
+    <h2>1. User Registration Form</h2>
+
+    <!-- 
+        <form> : Collects user input
+        action="#" : no backend submission
+        onsubmit="return validateForm()" : JS validation
+    -->
+    <form onsubmit="return validateForm()">
+
+        <!-- TEXT INPUT -->
+        <div class="form-group">
+            <label>Full Name</label>
+            <input type="text" id="name">
+            <div class="error" id="nameError"></div>
+        </div>
+
+        <!-- EMAIL INPUT -->
+        <div class="form-group">
+            <label>Email</label>
+            <input type="email" id="email">
+            <div class="error" id="emailError"></div>
+        </div>
+
+        <!-- PASSWORD INPUT -->
+        <div class="form-group">
+            <label>Password</label>
+            <input type="password" id="password">
+        </div>
+
+        <!-- RADIO BUTTONS -->
+        <div class="form-group">
+            <label>Gender</label>
+            <div class="inline">
+                <input type="radio" name="gender"> Male
+                <input type="radio" name="gender"> Female
+            </div>
+        </div>
+
+        <!-- CHECKBOX -->
+        <div class="form-group">
+            <label>Skills</label>
+            <div class="inline">
+                <input type="checkbox"> HTML
+                <input type="checkbox"> CSS
+                <input type="checkbox"> JavaScript
+            </div>
+        </div>
+
+        <!-- DROPDOWN -->
+        <div class="form-group">
+            <label>Country</label>
+            <select>
+                <option>India</option>
+                <option>USA</option>
+                <option>UK</option>
+            </select>
+        </div>
+
+        <!-- TEXTAREA -->
+        <div class="form-group">
+            <label>About You</label>
+            <textarea rows="3"></textarea>
+        </div>
+
+        <!-- SUBMIT BUTTON -->
+        <button type="submit">Register</button>
+
+    </form>
+
+    <!-- ===============================
+         TABLE SECTION
+         =============================== -->
+    <h2>2. Student Data Table</h2>
+
+    <!-- 
+        <table> : Table container
+        <tr> : Table row
+        <th> : Table heading
+        <td> : Table data
+        rowspan / colspan : Merge cells
+    -->
+    <table>
+
+        <!-- TABLE HEADER -->
+        <tr>
+            <th rowspan="2">Name</th>
+            <th colspan="2">Average</th>
+            <th rowspan="2">Result</th>
+        </tr>
+
+        <tr>
+            <th>Height</th>
+            <th>Weight</th>
+        </tr>
+
+        <!-- TABLE ROWS -->
+        <tr>
+            <td>Male</td>
+            <td>1.9</td>
+            <td>0.003</td>
+            <td>Pass</td>
+        </tr>
+
+        <tr>
+            <td>Female</td>
+            <td>1.7</td>
+            <td>0.002</td>
+            <td>Pass</td>
+        </tr>
+
+    </table>
+
+</div>
+
+<!-- ===============================
+     JAVASCRIPT (LOGIC PART)
+     =============================== -->
+<script>
+
+    /*
+        validateForm()
+        - Runs when form is submitted
+        - Prevents submission if invalid
+    */
+    function validateForm() {
+
+        // Get input values
+        let name = document.getElementById("name").value;
+        let email = document.getElementById("email").value;
+
+        let valid = true;
+
+        // NAME VALIDATION
+        if (name.length < 3) {
+            document.getElementById("nameError").innerText =
+                "Name must be at least 3 characters";
+            valid = false;
+        } else {
+            document.getElementById("nameError").innerText = "";
+        }
+
+        // EMAIL VALIDATION
+        if (!email.includes("@")) {
+            document.getElementById("emailError").innerText =
+                "Invalid email address";
+            valid = false;
+        } else {
+            document.getElementById("emailError").innerText = "";
+        }
+
+        return valid; // true = submit, false = stop
+    }
+
+</script>
+
+</body>
+</html>
